@@ -1,0 +1,149 @@
+{
+  "planName": "ClickyTour Ecosystem — Master Plan",
+  "version": "v1.1",
+  "updatedAt": "2026-03-03T20:52:00Z",
+  "tasks": [
+    {
+      "id": "S-COB-01",
+      "title": "Hermes Orchestrator Bot",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T20:00:00Z"
+    },
+    {
+      "id": "S-BKP-01",
+      "title": "Backup System (GitHub + GDrive)",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T20:00:00Z"
+    },
+    {
+      "id": "S-MEM-01",
+      "title": "GitHub Memory Architecture",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T20:00:00Z",
+      "notionUrl": "https://www.notion.so/31862f57cb6c80d2a7e7c996d689077c"
+    },
+    {
+      "id": "S-PLN-01",
+      "title": "Project Management Research",
+      "status": "Done",
+      "agent": "SEEK",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T20:00:00Z"
+    },
+    {
+      "id": "M-PLN-01",
+      "title": "GitHub Projects V2 Setup",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T23:00:00Z",
+      "notionUrl": "https://www.notion.so/31862f57cb6c80d2a7e7c996d689077c"
+    },
+    {
+      "id": "M-PLN-02",
+      "title": "Discord Channels Setup",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T23:00:00Z"
+    },
+    {
+      "id": "M-PLN-03",
+      "title": "Notion Workspace Setup",
+      "status": "Done",
+      "agent": "MAIN",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-03T00:00:00Z",
+      "notionUrl": "https://www.notion.so/31862f57cb6c80d2a7e7c996d689077c"
+    },
+    {
+      "id": "D-PLN-01",
+      "title": "Herald Bot Build",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T23:00:00Z"
+    },
+    {
+      "id": "D-PLN-02",
+      "title": "Herald GitHub Integration",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T23:00:00Z"
+    },
+    {
+      "id": "D-PLN-03",
+      "title": "Herald Automation (Notion/Onboarding)",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-02T23:00:00Z"
+    },
+    {
+      "id": "D-PLN-04",
+      "title": "Herald Local Datasource",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-03T00:00:00Z"
+    },
+    {
+      "id": "D-PLN-05",
+      "title": "Image Approval Automation",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-03T20:30:00Z"
+    },
+    {
+      "id": "D-UPG-01",
+      "title": "Progress-log + Buttons + Weekly digest",
+      "status": "Done",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-03T20:43:00Z"
+    },
+    {
+      "id": "S-BRD-01",
+      "title": "ClickyTour Brand Analysis",
+      "status": "Done",
+      "agent": "SEEK",
+      "priority": "MEDIUM",
+      "updatedAt": "2026-03-03T17:51:00Z"
+    },
+    {
+      "id": "P-IMG-04",
+      "title": "ClickyTour Brand Package v3",
+      "status": "Done",
+      "agent": "PIXEL",
+      "priority": "MEDIUM",
+      "updatedAt": "2026-03-03T20:40:00Z",
+      "notionUrl": "https://www.notion.so/ClickyTour-Brand-Package-v3-31862f57cb6c813fa9b7e335b8bc2747",
+      "driveUrl": "https://drive.google.com/drive/folders/clicly-memory-backup/clickytour-assets"
+    },
+    {
+      "id": "S-WRK-01",
+      "title": "Discord Workflows Research",
+      "status": "Done",
+      "agent": "SEEK",
+      "priority": "MEDIUM",
+      "updatedAt": "2026-03-03T20:16:00Z"
+    },
+    {
+      "id": "D-BUG-01",
+      "title": "core-react Login Bug Fix",
+      "status": "Todo",
+      "agent": "DOC",
+      "priority": "HIGH",
+      "updatedAt": "2026-03-03T00:00:00Z",
+      "notes": "Blocked — awaiting GitHub repo access"
+    }
+  ]
+}
