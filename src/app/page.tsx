@@ -28,19 +28,19 @@ export default async function Home({ searchParams }: { searchParams?: { agent?: 
         <p className="mt-1 text-sm text-cyan-100/80">Source: {source === 'supabase' ? 'Supabase' : 'Mock data (configure env to connect Supabase)'}</p>
 
         <form className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-          <select name="agent" defaultValue={agentFilter} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
+          <select name="agent" defaultValue={agentFilter} onChange={(e) => (e.target.form as HTMLFormElement)?.submit()} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
             <option value="">All agents</option>
             {agents.map((a) => <option key={a} value={a}>{a}</option>)}
           </select>
-          <select name="priority" defaultValue={priorityFilter} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
+          <select name="priority" defaultValue={priorityFilter} onChange={(e) => (e.target.form as HTMLFormElement)?.submit()} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
             <option value="">All priorities</option>
             {priorities.map((p) => <option key={p} value={p}>{p}</option>)}
           </select>
-          <select name="project" defaultValue={projectFilter} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
+          <select name="project" defaultValue={projectFilter} onChange={(e) => (e.target.form as HTMLFormElement)?.submit()} className="rounded bg-[#13395D] border border-cyan-900/40 p-2 text-sm">
             <option value="">All projects</option>
             {projects.map((p) => <option key={p} value={p}>{p}</option>)}
           </select>
-          <button className="md:col-span-3 w-full rounded bg-cyan-500 text-[#0F2B46] font-semibold py-2">Apply Filters</button>
+          <a href="/" className="md:col-span-3 text-center rounded bg-cyan-900/40 text-cyan-300 text-sm py-2 hover:bg-cyan-900/60">✕ Clear filters</a>
         </form>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
