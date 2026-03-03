@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getTasks } from '@/lib/data';
 import { normalizeStatus, STATUS_ORDER } from '@/lib/normalize';
 import { TaskCard } from '@/components/TaskCard';
