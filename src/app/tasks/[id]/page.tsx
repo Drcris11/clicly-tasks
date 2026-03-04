@@ -25,8 +25,9 @@ const PRIORITY_BADGE_STYLES: Record<string, string> = {
   urgent: 'bg-rose-500/20 text-rose-100 border-rose-400/60',
 };
 
-export default async function TaskDetailPage({ params }: { params: { id: string } }) {
-  const { task } = await getTaskById(params.id);
+export default async function TaskDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const { task } = await getTaskById(id);
   if (!task) return notFound();
 
   const links = [

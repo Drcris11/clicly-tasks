@@ -12,7 +12,7 @@ export function normalizeStatus(status?: string | null): TaskStatus {
 
 export function normalizeTask(raw: any): Task {
   return {
-    id: raw.id,
+    id: String(raw.id ?? ''),
     title: raw.title,
     description: raw.description ?? null,
     status: normalizeStatus(raw.status),

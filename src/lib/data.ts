@@ -43,5 +43,5 @@ export async function getTasks(): Promise<{ tasks: Task[]; source: 'supabase' | 
 
 export async function getTaskById(id: string): Promise<{ task: Task | null; source: 'supabase' | 'mock' }> {
   const { tasks, source } = await getTasks();
-  return { task: tasks.find((t) => t.id === id) || null, source };
+  return { task: tasks.find((t) => String(t.id) === String(id)) || null, source };
 }
