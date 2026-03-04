@@ -17,6 +17,9 @@ const STATUS_BADGE_STYLES: Record<string, string> = {
   'Pending Approval': 'bg-purple-500/20 text-purple-200 border-purple-400/40',
   Pending: 'bg-amber-500/20 text-amber-200 border-amber-400/40',
   Blocked: 'bg-red-500/20 text-red-200 border-red-400/40',
+  Testing: 'bg-[#10B981]/20 text-[#10B981] border-[#10B981]/40',
+  'On Hold': 'bg-[#9CA3AF]/20 text-[#E5E7EB] border-[#9CA3AF]/40',
+  Cancelled: 'bg-[#78716C]/20 text-[#D6D3D1] border-[#78716C]/40',
   Done: 'bg-emerald-500/20 text-emerald-200 border-emerald-400/40',
 };
 
@@ -26,6 +29,9 @@ const STATUS_EMOJI: Record<string, string> = {
   'Pending Approval': '⏳',
   Pending: '⏳',
   Blocked: '🚫',
+  Testing: '🧪',
+  'On Hold': '💤',
+  Cancelled: '🗑️',
   Done: '✅',
 };
 
