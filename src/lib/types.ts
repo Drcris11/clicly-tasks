@@ -9,6 +9,9 @@ export interface Task {
   priority?: string | null;
   project?: string | null;
   notes?: string | null;
+  original_request?: string | null;
+  brief?: string | null;
+  my_analysis?: string | null;
   notion_url?: string | null;
   drive_url?: string | null;
   github_url?: string | null;

@@ -80,6 +80,29 @@ export default async function TaskDetailPage({ params }: { params: Promise<{ id:
           </div>
         </section>
 
+        {!!task.original_request && (
+          <section className="mt-6 rounded-lg border border-[#F99C00]/35 bg-[#F99C00]/12 p-4">
+            <h2 className="font-semibold text-[#F99C00]">🎯 Original Request</h2>
+            <p className="mt-2 whitespace-pre-wrap text-amber-100">{task.original_request}</p>
+          </section>
+        )}
+
+        {!!task.brief && (
+          <section className="mt-6 rounded-lg border border-[#00B7D7]/35 bg-[#00B7D7]/10 p-4">
+            <h2 className="font-semibold text-[#00B7D7]">📝 Brief to Agent</h2>
+            <pre className="mt-2 overflow-x-auto whitespace-pre-wrap rounded-md border border-cyan-300/20 bg-[#062B36] p-3 font-mono text-sm text-cyan-100">{task.brief}</pre>
+          </section>
+        )}
+
+        {!!task.my_analysis && (
+          <section className="mt-6 rounded-lg border border-violet-300/30 bg-violet-500/12 p-4">
+            <h2 className="font-semibold text-violet-200">🧠 My Analysis <span className="font-normal text-violet-300/90">— Clicly's interpretation</span></h2>
+            <div className="prose prose-invert prose-sm mt-2 max-w-none text-violet-100">
+              <ReactMarkdown>{task.my_analysis}</ReactMarkdown>
+            </div>
+          </section>
+        )}
+
         {!!task.notes && (
           <section className="mt-6 rounded-lg border border-yellow-300/30 bg-yellow-500/15 p-4">
             <h2 className="font-semibold text-yellow-200">Notes</h2>
