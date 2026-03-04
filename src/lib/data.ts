@@ -16,7 +16,11 @@ export async function getTasks(): Promise<{ tasks: Task[]; source: 'supabase' | 
   }
 
   const supabase = await createClient();
-  const { data, error } = await supabase.from('tasks').select('*').order('updated_at', { ascending: false });
+  const { data, error } = await supabase
+    .from('tasks')
+    .select('*')
+    .order('seq', { ascending: true, nullsFirst: false })
+    .order('updated_at', { ascending: false });
 
   if (error || !data) {
     return { tasks: readMockTasks(), source: 'mock' };
