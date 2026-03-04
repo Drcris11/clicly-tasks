@@ -1,11 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { createClient } from '@supabase/supabase-js';
 import { normalizeTask } from './normalize';
 import { Task } from './types';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+import { createClient } from '@/lib/supabase/server';
 
 function readMockTasks(): Task[] {
   const file = path.join(process.cwd(), 'data', 'tasks.mock.json');
@@ -14,15 +11,13 @@ function readMockTasks(): Task[] {
 }
 
 export async function getTasks(): Promise<{ tasks: Task[]; source: 'supabase' | 'mock' }> {
-  if (!supabaseUrl || !supabaseAnonKey) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     return { tasks: readMockTasks(), source: 'mock' };
   }
 
-  const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-    auth: { persistSession: false },
-  });
-
+  const supabase = await createClient();
   const { data, error } = await supabase.from('tasks').select('*').order('updated_at', { ascending: false });
+
   if (error || !data) {
     return { tasks: readMockTasks(), source: 'mock' };
   }
