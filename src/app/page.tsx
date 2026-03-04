@@ -5,17 +5,25 @@ import { TaskCard } from '@/components/TaskCard';
 import { Filters } from '@/components/Filters';
 import { Suspense } from 'react';
 
-export default async function Home({ searchParams }: { searchParams?: { agent?: string; priority?: string; project?: string } }) {
+export default async function Home({ searchParams }: { searchParams?: { agent?: string; priority?: string; project?: string; status?: string; q?: string } }) {
   const { tasks, source } = await getTasks();
 
   const agentFilter = searchParams?.agent || '';
   const priorityFilter = searchParams?.priority || '';
   const projectFilter = searchParams?.project || '';
+  const statusFilter = searchParams?.status || '';
+  const searchQuery = (searchParams?.q || '').toLowerCase();
 
   const filtered = tasks.filter((t) => {
     if (agentFilter && String(t.agent || '') !== agentFilter) return false;
     if (priorityFilter && String(t.priority || '') !== priorityFilter) return false;
     if (projectFilter && String(t.project || '') !== projectFilter) return false;
+    if (statusFilter && normalizeStatus(t.status) !== statusFilter) return false;
+    if (searchQuery) {
+      const inId = String(t.id || '').toLowerCase().includes(searchQuery);
+      const inTitle = String(t.title || '').toLowerCase().includes(searchQuery);
+      if (!inId && !inTitle) return false;
+    }
     return true;
   });
 
