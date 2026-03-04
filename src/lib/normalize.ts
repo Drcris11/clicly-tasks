@@ -1,11 +1,13 @@
 import { Task, TaskStatus } from './types';
 
-export const STATUS_ORDER: TaskStatus[] = ['Todo', 'In Progress', 'Pending', 'Blocked', 'Done'];
+export const STATUS_ORDER: TaskStatus[] = ['Todo', 'In Progress', 'Pending Approval', 'Pending', 'Blocked', 'Done'];
 
 export function normalizeStatus(status?: string | null): TaskStatus {
   const s = String(status || '').toLowerCase();
   if (s.includes('progress') || s.includes('doing') || s.includes('active')) return 'In Progress';
-  if (s.includes('pending') || s.includes('review') || s.includes('approval')) return 'Pending';
+  if (s.includes('pending approval') || (s.includes('pending') && s.includes('approval'))) return 'Pending Approval';
+  if (s.includes('pending') || s.includes('review')) return 'Pending';
+  if (s.includes('approval')) return 'Pending Approval';
   if (s.includes('blocked') || s.includes('stuck') || s.includes('hold')) return 'Blocked';
   if (s.includes('done') || s.includes('complete') || s.includes('closed')) return 'Done';
   return 'Todo';

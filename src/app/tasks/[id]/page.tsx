@@ -14,6 +14,7 @@ const AGENT_BADGE_STYLES: Record<string, string> = {
 const STATUS_BADGE_STYLES: Record<string, string> = {
   Todo: 'bg-slate-500/20 text-slate-200 border-slate-400/40',
   'In Progress': 'bg-sky-500/20 text-sky-200 border-sky-400/40',
+  'Pending Approval': 'bg-purple-500/20 text-purple-200 border-purple-400/40',
   Pending: 'bg-amber-500/20 text-amber-200 border-amber-400/40',
   Blocked: 'bg-red-500/20 text-red-200 border-red-400/40',
   Done: 'bg-emerald-500/20 text-emerald-200 border-emerald-400/40',
@@ -22,6 +23,7 @@ const STATUS_BADGE_STYLES: Record<string, string> = {
 const STATUS_EMOJI: Record<string, string> = {
   Todo: '📥',
   'In Progress': '🔄',
+  'Pending Approval': '⏳',
   Pending: '⏳',
   Blocked: '🚫',
   Done: '✅',

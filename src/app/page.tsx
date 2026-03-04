@@ -33,7 +33,7 @@ export default async function Home({ searchParams }: { searchParams?: { agent?: 
           <Filters agents={agents} priorities={priorities} projects={projects} />
         </Suspense>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
           {STATUS_ORDER.map((status) => {
             const items = filtered.filter((t) => normalizeStatus(t.status) === status);
             return (
