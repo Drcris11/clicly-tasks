@@ -92,6 +92,28 @@ async function updateRoleAction(formData: FormData) {
   redirect('/admin/users?status=role-updated');
 }
 
+async function resetPasswordAction(formData: FormData) {
+  'use server';
+
+  if (!(await isAdmin())) redirect('/');
+
+  const email = String(formData.get('email') || '').trim();
+  if (!email) redirect('/admin/users?status=invalid-email');
+
+  const adminClient = getServiceClient();
+  const { error } = await adminClient.auth.admin.generateLink({
+    type: 'recovery',
+    email,
+  });
+
+  if (error) {
+    redirect(`/admin/users?status=reset-error&message=${encodeURIComponent(error.message)}`);
+  }
+
+  revalidatePath('/admin/users');
+  redirect('/admin/users?status=reset-sent');
+}
+
 async function removeUserAction(formData: FormData) {
   'use server';
 
@@ -208,7 +230,13 @@ export default async function AdminUsersPage({
                       </form>
                     </td>
                     <td className="px-3 py-2">{new Date(user.created_at).toLocaleString()}</td>
-                    <td className="px-3 py-2">
+                    <td className="px-3 py-2 flex gap-2">
+                      <form action={resetPasswordAction}>
+                        <input type="hidden" name="email" value={user.email} />
+                        <button className="rounded-md border border-amber-500/60 px-2 py-1 text-amber-300 hover:bg-amber-900/30">
+                          Reset Password
+                        </button>
+                      </form>
                       <form action={removeUserAction}>
                         <input type="hidden" name="id" value={user.id} />
                         <button className="rounded-md border border-red-500/60 px-2 py-1 text-red-300 hover:bg-red-900/30">Remove</button>
